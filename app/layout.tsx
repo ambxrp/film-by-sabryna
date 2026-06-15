@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,17 +37,55 @@ export default function RootLayout({
         {/* Minimal Floating Nav */}
         <header className="fixed top-0 z-40 w-full bg-filmCream/90 backdrop-blur-md border-b border-filmTaupe/20">
           <div className="mx-auto max-w-7xl px-8 md:px-16 py-6 flex justify-between items-center">
-            <Link href="/" className="text-lg font-tracking-widest font-light lowercase text-filmBlack hover:text-filmTaupe transition">
-              film by sabryna
+            {/* Replaced Text with Logo Image */}
+            <Link href="/" className="hover:opacity-70 transition block relative h-8 w-40 md:h-10 md:w-48 lg:h-12 lg:w-56">
+              {/* Replace 'logo.png' with your actual file name in the public folder */}
+              <Image 
+                src="/icon.png" 
+                alt="film by sabryna logo" 
+                fill 
+                className="object-contain object-left" 
+                priority
+              />
+              {/* Fallback text just in case the image is missing during development */}
+              <span className="sr-only">film by sabryna</span>
             </Link>
             
             <nav className="flex gap-8 text-[11px] font-mono uppercase tracking-widest text-filmTaupe">
               <Link href="/" className="hover:text-filmBlack transition">01. Home</Link>
-              <Link href="/about" className="hover:text-filmBlack transition">02. About</Link>
-              <Link href="/contact" className="hover:text-filmBlack transition">03. Contact</Link>
+              <Link href="/packages" className="hover:text-filmBlack transition">02. Packages</Link>
+              <Link href="/about" className="hover:text-filmBlack transition">03. About</Link>
+              <Link href="/contact" className="hover:text-filmBlack transition">04. Contact</Link>
             </nav>
           </div>
         </header>
+
+        {/* Footer / Footnote */}
+        <footer className="relative z-10 w-full bg-filmCream border-t border-filmTaupe/30 py-12 px-6">
+          <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            {/* Left: Copyright & Branding */}
+            <div className="text-center md:text-left">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-filmTaupe">
+                &copy; {new Date().getFullYear()} Film by Sabryna. All rights reserved.
+              </p>
+              <p className="text-[9px] font-mono uppercase tracking-widest text-filmTaupe/70 mt-1">
+                San Antonio, TX // Sole Proprietorship
+              </p>
+            </div>
+
+            {/* Right: Legal Links */}
+            <div className="flex gap-6 text-[10px] font-mono uppercase tracking-widest text-filmTaupe">
+              <Link href="/privacy-policy" className="hover:text-filmBlack transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-filmBlack transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
+
+          </div>
+        </footer>
 
         <main className="relative z-10">{children}</main>
 
