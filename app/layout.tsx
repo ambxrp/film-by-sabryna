@@ -60,6 +60,8 @@ export default function RootLayout({
           </div>
         </header>
 
+        <main className="relative z-10">{children}</main>
+
         {/* Footer / Footnote */}
         <footer className="relative z-10 w-full bg-filmCream border-t border-filmTaupe/30 py-12 px-6">
           <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
@@ -86,8 +88,6 @@ export default function RootLayout({
 
           </div>
         </footer>
-
-        <main className="relative z-10">{children}</main>
 
       </body>
     </html>
