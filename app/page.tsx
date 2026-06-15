@@ -14,6 +14,16 @@ export default function Home() {
 
   return (
     <div className="w-full bg-filmCream pb-12 pt-24">
+
+      {/* Promotional Announcement Banner */}
+      <div className="w-full bg-filmTaupe text-filmCream py-3 px-6 flex justify-center items-center relative z-50">
+        <p className="text-[10px] font-mono uppercase tracking-widest text-center flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+          <span>Now Booking: Summer Moments</span>
+          <Link href="/promo" className="border-b border-filmCream/50 hover:border-filmCream hover:text-filmBlack transition-colors pb-0.5">
+            View Details &rarr;
+          </Link>
+        </p>
+      </div>
       
       {/* 1. HERO SECTION (Untouched - Visual Anchor) */}
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -93,9 +103,9 @@ export default function Home() {
 
         <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { title: 'Mini', subtitle: 'The Essentials', price: 'Starting at $250' },
-            { title: 'Standard', subtitle: 'The Story', price: 'Starting at $450', popular: true },
-            { title: 'Family', subtitle: 'The Keepsake', price: 'Starting at $550' }
+            { title: 'Mini', subtitle: 'The Essentials', price: 'Starting at $85' },
+            { title: 'Standard', subtitle: 'The Story', price: 'Starting at $135', popular: true },
+            { title: 'Family', subtitle: 'The Keepsake', price: 'Starting at $185' }
           ].map((pkg, idx) => (
             <div key={idx} className={`relative bg-[#f8f6f0] border rounded-lg p-6 flex flex-col justify-between h-[250px] shadow-sm ${pkg.popular ? 'border-filmBeige shadow-xl transform md:-translate-y-4' : 'border-filmTaupe/20'}`}>
               

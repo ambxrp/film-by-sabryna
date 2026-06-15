@@ -45,10 +45,10 @@ export default function About() {
           
           <div className="space-y-6 text-sm font-light text-filmBlack/80 leading-relaxed max-w-xl">
             <p>
-              Hi, I’m Sabryna — the girl behind film by sabryna. My love for photography started when I was young, capturing little moments just because I thought they were beautiful. Over time, that love has grown into something I want to share with others.
+              Hi, I’m Sabryna, the girl behind film by sabryna. My love for photography started when I was young, capturing little moments just because I thought they were beautiful. Over time, that love has grown into something I want to share with others.
             </p>
             <p>
-              As a developing photographer, I’m offering reasonable intro pricing while I continue to grow, learn, and build my portfolio. My goal is to create photos that feel natural, warm, and real — the kind of pictures that help you remember a season of life exactly as it felt.
+              As a developing photographer, I’m offering reasonable intro pricing while I continue to grow, learn, and build my portfolio. My goal is to create photos that feel natural, warm, and real; the kind of pictures that help you remember a season of life exactly as it felt.
             </p>
             <p>
               Whether it’s portraits, couples, or family photos, I’d love to be there to capture the moments you’ll want to look back on.
