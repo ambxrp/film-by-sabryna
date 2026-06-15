@@ -1,26 +1,24 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Defining --color-* variables automatically generates all related utility classes 
+    (e.g., bg-filmBlack, text-filmCream, border-filmTaupe) 
+  */
+  --color-filmBlack: #111111;
+  --color-filmCream: #F3F0E8;
+  --color-filmBeige: #C8B8A6;
+  --color-filmTaupe: #8A7A6A;
+
+  /* Defining --radius-* variables automatically generates border-radius classes 
+    (e.g., rounded-organic) 
+  */
+  --radius-organic: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Optional: You can set your background and text color globally here */
+@layer base {
+  body {
+    background-color: var(--color-filmCream);
+    color: var(--color-filmBlack);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
