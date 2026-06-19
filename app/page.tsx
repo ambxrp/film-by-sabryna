@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 // Helper to generate film sprockets
   const Sprockets = () => (
@@ -67,20 +68,33 @@ export default function Home() {
         </div>
         <Sprockets />
 
+        {/* Horizontal Scroll / Grid Images */}
         <div className="mx-auto max-w-7xl px-6 w-full grid grid-cols-1 md:grid-cols-3 gap-6 py-4">
-          {['Singles', 'Couples', 'Families'].map((category, idx) => (
+          
+          {/* Updated array to include the image path */}
+          {[
+            { title: 'Singles', src: '/singles.jpg' }, 
+            { title: 'Couples', src: '/couple.jpg' }, 
+            { title: 'Families', src: '/families.jpg' }
+          ].map((category, idx) => (
             <div key={idx} className="space-y-2">
-              <div className="w-full aspect-video bg-filmCream/10 rounded-sm flex items-center justify-center border border-white/5">
-                <span className="text-xs font-mono uppercase text-filmTaupe">[ {category} Image ]</span>
-              </div>
-              <div className="flex justify-between items-center text-[10px] font-mono tracking-widest uppercase px-2">
-                <span>{category}</span>
-                <span>&rarr;</span>
+              
+              {/* Added 'relative' and 'overflow-hidden' to lock the image inside the border */}
+              <div className="w-full aspect-video bg-filmCream/10 rounded-sm flex items-center justify-center border border-white/5 relative overflow-hidden">
+                
+                {/* Replaced Placeholder with Next.js Image */}
+                <Image 
+                  src={category.src} 
+                  alt={`${category.title} photography portfolio`} 
+                  fill 
+                  className="object-cover object-[center_20%]" 
+                />
+
               </div>
             </div>
           ))}
+                    
         </div>
-
         <Sprockets />
         <div className="flex justify-around px-6 text-[9px] font-mono text-filmBeige mt-2">
           <span>11A &#9654;</span>
@@ -132,8 +146,17 @@ export default function Home() {
       {/* 4. ABOUT TEASER & CTA */}
       <section className="bg-[#111111] text-filmCream rounded-tr-[100px] mt-12 py-32 relative overflow-hidden">
         <div className="mx-auto max-w-5xl px-6 flex flex-col items-center text-center space-y-8 z-10 relative">
-           <div className="w-32 h-32 rounded-full bg-filmTaupe/20 flex items-center justify-center border border-filmTaupe/40 mb-4">
-              <span className="text-[10px] font-mono uppercase text-filmTaupe text-center">Sabryna<br/>Portrait</span>
+            <div className="relative w-32 h-32 rounded-full overflow-hidden bg-filmTaupe/20 border border-filmTaupe/40 mb-4">
+              <Image
+               src="/sabryna_headshot.jpg"
+               alt="Sabryna Portrait"
+               fill
+               sizes="128px"
+              quality={100}
+              unoptimized
+               priority
+               className="object-cover object-[45%_center]"
+              />
            </div>
            <h2 className="text-4xl md:text-5xl font-light lowercase">your story, unfiltered.</h2>
            <p className="font-light text-sm text-filmCream/80 max-w-lg leading-relaxed">

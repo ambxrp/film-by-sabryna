@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -10,14 +11,21 @@ export default function About() {
       </div>
 
       {/* 1. BIOGRAPHY SECTION */}
-      <section className="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
+      <section className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        {/* Left Side: Editorial Image Frame */}
-        <div className="md:col-span-5 relative">
-          <div className="w-full aspect-[4/5] bg-filmTaupe/10 border border-filmTaupe/30 p-2 shadow-xl relative">
+        {/* Left Side: 7x5 Landscape Image Frame */}
+        {/* Added order classes so text is on top for mobile, side-by-side for desktop */}
+        <div className="lg:col-span-6 relative order-2 lg:order-1 mt-8 lg:mt-0">
+          {/* Updated to aspect-[7/5] for the precise ratio */}
+          <div className="w-full aspect-[4/3] bg-filmTaupe/10 border border-filmTaupe/30 p-2 shadow-xl relative">
              <div className="w-full h-full bg-[#111111]/5 flex items-center justify-center">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-filmTaupe">
-                  [ Sabryna Portrait ]
+                  <Image
+                    src="/sabryna-camera.jpg"
+                    alt="Sabryna Portrait"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
                 </span>
              </div>
              
@@ -29,26 +37,26 @@ export default function About() {
           </div>
           
           {/* Decorative Elements */}
-          <div className="absolute -top-6 -right-6 w-24 h-24 bg-filmBeige/20 rounded-full blur-xl -z-10"></div>
+          <div className="absolute -top-6 -left-6 w-32 h-32 bg-filmBeige/20 rounded-full blur-2xl -z-10"></div>
         </div>
 
         {/* Right Side: Biography & Text */}
-        <div className="md:col-span-7 space-y-8">
+        <div className="lg:col-span-5 space-y-8 order-1 lg:order-2">
           <div className="space-y-2">
             <p className="text-[10px] font-mono uppercase tracking-widest text-filmTaupe">
               The Artist
             </p>
-            <h1 className="text-4xl md:text-6xl font-light lowercase text-filmBlack">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light lowercase text-filmBlack">
               about sabryna.
             </h1>
           </div>
           
           <div className="space-y-6 text-sm font-light text-filmBlack/80 leading-relaxed max-w-xl">
             <p>
-              Hi, I’m Sabryna, the girl behind film by sabryna. My love for photography started when I was young, capturing little moments just because I thought they were beautiful. Over time, that love has grown into something I want to share with others.
+              Hi, I’m Sabryna — the girl behind film by sabryna. My love for photography started when I was young, capturing little moments just because I thought they were beautiful. Over time, that love has grown into something I want to share with others.
             </p>
             <p>
-              As a developing photographer, I’m offering reasonable intro pricing while I continue to grow, learn, and build my portfolio. My goal is to create photos that feel natural, warm, and real; the kind of pictures that help you remember a season of life exactly as it felt.
+              As a developing photographer, I’m offering reasonable intro pricing while I continue to grow, learn, and build my portfolio. My goal is to create photos that feel natural, warm, and real — the kind of pictures that help you remember a season of life exactly as it felt.
             </p>
             <p>
               Whether it’s portraits, couples, or family photos, I’d love to be there to capture the moments you’ll want to look back on.
@@ -80,7 +88,7 @@ export default function About() {
           
           {/* The Quote */}
           <p className="text-2xl md:text-4xl font-light font-serif italic tracking-wide leading-relaxed max-w-3xl text-filmCream/90">
-            &quot;Photography is a way of feeling, of touching, of loving. What you have caught on film is captured forever... It remembers little things, long after you have forgotten everything.&quot;
+            &ldquo;Photography is a way of feeling, of touching, of loving. What you have caught on film is captured forever... It remembers little things, long after you have forgotten everything.&rdquo;
           </p>
           
           {/* The Attribution */}
