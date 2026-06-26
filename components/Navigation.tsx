@@ -32,9 +32,20 @@ export default function Navigation() {
   ];
 
   return (
-    // Update header background to become completely solid when the menu opens
-    <header className={`fixed top-0 z-50 w-full transition-colors duration-300 ${isOpen ? 'bg-filmCream' : 'bg-filmCream/90 backdrop-blur-md'} border-b ${isOpen ? 'border-transparent' : 'border-filmTaupe/20'}`}>
-      <div className="mx-auto max-w-7xl px-6 md:px-16 py-6 flex justify-between items-center relative z-50">
+    <header className={`fixed top-0 z-50 w-full flex flex-col transition-colors duration-300 ${isOpen ? 'bg-filmCream' : 'bg-filmCream/90 backdrop-blur-md'} border-b ${isOpen ? 'border-transparent' : 'border-filmTaupe/20'}`}>
+      
+      {/* 1. Global Promo Banner (Text enlarged to text-xs) */}
+      <div className="w-full bg-filmTaupe text-filmCream py-3 px-6 flex justify-center items-center relative z-50">
+        <p className="text-xs font-mono uppercase tracking-widest text-center flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+          <span>Now Booking: Summer Moments</span>
+          <Link href="/promo" onClick={() => setIsOpen(false)} className="border-b border-filmCream/50 hover:border-filmCream hover:text-filmBlack transition-colors pb-0.5">
+            View Details &rarr;
+          </Link>
+        </p>
+      </div>
+
+      {/* 2. Main Navigation Bar */}
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-16 py-6 flex justify-between items-center relative z-50">
         
         {/* Responsive Logo Container */}
         <Link href="/" className="hover:opacity-70 transition block relative h-8 w-40 md:h-10 md:w-48 lg:h-12 lg:w-56" onClick={() => setIsOpen(false)}>
@@ -42,7 +53,6 @@ export default function Navigation() {
             src="/icon.png" 
             alt="film by sabryna logo" 
             fill 
-            sizes="true"
             className="object-contain object-left" 
             priority
           />
@@ -73,8 +83,8 @@ export default function Navigation() {
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
-        {/* Uses justify-start and pt-32 so the top links never get cut off */}
-        <div className="flex flex-col items-center justify-start pt-32 pb-12 min-h-full">
+        {/* Adjusted padding to pt-40 to account for the new banner height */}
+        <div className="flex flex-col items-center justify-start pt-40 pb-12 min-h-full">
           <nav className="flex flex-col gap-8 text-center w-full px-6">
             {navLinks.map((link) => (
               <Link 
@@ -88,7 +98,6 @@ export default function Navigation() {
             ))}
           </nav>
 
-          {/* mt-auto pushes the metadata to the bottom if there is extra space */}
           <div className="mt-auto pt-16 text-[10px] font-mono uppercase tracking-widest text-filmTaupe/60 text-center">
             Process: C-41 Color Negative
           </div>
